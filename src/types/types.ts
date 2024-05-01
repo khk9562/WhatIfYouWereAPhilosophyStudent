@@ -1,5 +1,9 @@
-export type ResultType = {
+export interface ResultType {
   name: string;
   description: string;
   character: string;
-};
+}
+
+export interface SelectButtonType {
+  children: string;
+}

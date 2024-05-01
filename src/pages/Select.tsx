@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import PageNum from "../components/PageNum";
+import PageNum from "../components/PageNum/PageNum";
+import SelectButton from "../components/SelectButton";
 
 function Select() {
   return (
@@ -13,10 +14,10 @@ function Select() {
       </p>
 
       <div>
-        <button type="button">선택지1</button>
-        <button type="button">선택지2</button>
-        <button type="button">선택지3</button>
-        <button type="button">선택지4</button>
+        <SelectButton>선택지1</SelectButton>
+        <SelectButton>선택지2</SelectButton>
+        <SelectButton>선택지3</SelectButton>
+        <SelectButton>선택지4</SelectButton>
       </div>
     </article>
   );
