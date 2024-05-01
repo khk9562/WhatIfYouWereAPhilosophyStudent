@@ -10,7 +10,7 @@ function Main() {
         되었습니다. 과연 철학과에서 어떤 포지션을 맡게 될까요?
       </p>
 
-      <Link to="/select">시작하기</Link>
+      <Link to={`/select:id`}>시작하기</Link>
     </div>
   );
 }
