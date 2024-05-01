@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Select() {
-  const [pageNum, setPageNum] = useState<number>(0);
+function PageNum() {
+  const [pageNum, setPageNum] = useState<number>(1);
 
   const handlePageNext = () => {
     setPageNum(pageNum + 1);
   };
   const handlePagePrev = () => {
-    if (pageNum > 0) {
+    if (pageNum > 1) {
       setPageNum(pageNum - 1);
     }
   };
@@ -19,6 +19,9 @@ function Select() {
 
   return (
     <nav>
+      <button type="button">
+        <Link to={"/"}>메인으로</Link>
+      </button>
       <button type="button" onClick={handlePagePrev}>
         이전
       </button>
@@ -34,4 +37,4 @@ function Select() {
   );
 }
 
-export default Select;
+export default PageNum;

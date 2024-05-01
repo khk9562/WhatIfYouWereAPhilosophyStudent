@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ResultType } from "../types";
+import { ResultType } from "../types/types";
 
 const results: ResultType[] = [
   {
