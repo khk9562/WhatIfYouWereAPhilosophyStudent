@@ -13,7 +13,15 @@ function Select() {
         되었습니다. 과연 철학과에서 어떤 포지션을 맡게 될까요?
       </p>
 
-      <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          gap: "18px",
+          margin: "12px",
+        }}
+      >
         <SelectButton>선택지1</SelectButton>
         <SelectButton>선택지2</SelectButton>
         <SelectButton>선택지3</SelectButton>

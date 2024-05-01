@@ -5,6 +5,10 @@ const StyledSelectButton = styled.button`
   border-radius: 8px;
   padding: 3px 6px;
   word-break: keep-all;
+  cursor: pointer;
+  display: block;
+  width: 70%;
+  min-height: 80px;
 `;
 
 export default StyledSelectButton;
