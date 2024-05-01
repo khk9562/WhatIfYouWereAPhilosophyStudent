@@ -7,7 +7,7 @@ const StyledSelectButton = styled.button`
   word-break: keep-all;
   cursor: pointer;
   display: block;
-  width: 70%;
+  width: 100%;
   min-height: 80px;
 `;
 

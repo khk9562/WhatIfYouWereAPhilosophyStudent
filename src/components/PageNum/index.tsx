@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import StyledPageNumBox from "./style";
 
 function PageNum() {
   const [pageNum, setPageNum] = useState<number>(1);
@@ -18,7 +19,7 @@ function PageNum() {
   }, [pageNum]);
 
   return (
-    <nav>
+    <StyledPageNumBox>
       <button type="button">
         <Link to={"/"}>메인으로</Link>
       </button>
@@ -33,7 +34,7 @@ function PageNum() {
       <button type="button" onClick={handlePageNext}>
         다음
       </button>
-    </nav>
+    </StyledPageNumBox>
   );
 }
 

@@ -4,6 +4,6 @@ export interface ResultType {
   character: string;
 }
 
-export interface SelectButtonType {
+export interface StringChildren {
   children: string;
 }
