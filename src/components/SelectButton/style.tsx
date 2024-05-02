@@ -9,6 +9,14 @@ const StyledSelectButton = styled.button`
   display: block;
   width: 100%;
   min-height: 80px;
+  font-size: 16px;
+  font-weight: 500;
+  &:hover {
+    box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.1);
+  }
+  &:focus {
+    border: 1px solid #333;
+  }
 `;
 
 export default StyledSelectButton;

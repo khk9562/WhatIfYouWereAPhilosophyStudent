@@ -15,6 +15,11 @@ function PageNum() {
   };
 
   useEffect(() => {
+    let page = localStorage.getItem("page");
+    setPageNum(Number(page));
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem("page", String(pageNum));
   }, [pageNum]);
 
