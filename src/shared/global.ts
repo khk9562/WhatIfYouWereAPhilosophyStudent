@@ -41,10 +41,48 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
+  html, body {
+    background-color: #efefef;
+  }
   html, body, #root {
     font-family: "Pretendard";
     font-weight: 400;
     letter-spacing: -0.02px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+#root {
+      max-width: 800px;
+      min-height: 100vh;
+      margin: 0 auto;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
+  }
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+
+  }
+  .btn {
+    background-color: #FF8427;
+    max-width: 80%;
+    min-width: 350px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 700;
+    color: #fff;
+    &:hover {
+      box-shadow: 0 2px 5px 2px rgba(0,0,0,0.1);
+    }
   }
 
 `;

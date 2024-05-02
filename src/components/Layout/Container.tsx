@@ -9,9 +9,10 @@ function Container({ children }: any) {
         justifyContent: "center",
         alignItems: "center",
         gap: "12px",
-        maxWidth: "1000px",
-        height: "100vh",
-        margin: "0 auto",
+        width: "100%",
+        height: "100%",
+        padding: "0 24px",
+        // marginBottom: "100px",
       }}
     >
       {children}
