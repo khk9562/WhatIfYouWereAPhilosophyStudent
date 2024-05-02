@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 
 import { ThemeProvider } from "styled-components";
-import theme from "./shared/\btheme";
+import theme from "./shared/theme";
 import { GlobalStyle } from "./shared/global";
 
 import App from "./App";
