@@ -74,7 +74,7 @@ function Select() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          gap: "18px",
+          gap: "8px",
           margin: "12px",
         }}
       >

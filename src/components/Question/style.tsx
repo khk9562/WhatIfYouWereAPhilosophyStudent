@@ -6,8 +6,8 @@ const StyledQuestion = styled.h1`
   letter-spacing: -0.2px;
   font-weight: 500;
   padding: 32px;
-  margin: 18px;
-  margin-bottom: 20px;
+  margin: 12px;
+  margin-bottom: 8px;
   background-color: #333;
   color: #eee;
   border-radius: 10px;

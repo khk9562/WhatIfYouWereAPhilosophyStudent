@@ -14,8 +14,10 @@ const StyledSelectButton = styled.button`
   color: #333;
   &:focus {
     box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.1);
-    border: 2px solid #333;
-    color: #000;
+    // border: 2px solid #333;
+    background-color: #ff8427;
+    color: #fff;
+    font-weight: 700;
   }
 `;
 
