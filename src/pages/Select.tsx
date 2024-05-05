@@ -10,6 +10,7 @@ function Select() {
   const [pageNum, setPageNum] = useState<number>(1);
   const [quest, setQuest] = useState<string>("");
   const [selets, setSelects] = useState<any>();
+
   useEffect(() => {
     let page = localStorage.getItem("page");
     setPageNum(Number(page));
@@ -27,7 +28,7 @@ function Select() {
 
   return (
     <Container>
-      <PageNum />
+      <PageNum pageNum={pageNum} setPageNum={setPageNum} />
       <Question>{quest}</Question>
 
       <div
@@ -40,7 +41,7 @@ function Select() {
           margin: "12px",
         }}
       >
-        {selets.map((item: any, index: number) => (
+        {selets?.map((item: any, index: number) => (
           <SelectButton>{item.text}</SelectButton>
         ))}
       </div>

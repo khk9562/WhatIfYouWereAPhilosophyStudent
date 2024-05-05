@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, SetStateAction } from "react";
 import { Link } from "react-router-dom";
 import StyledPageNumBox from "./style";
+import { SELECT_LIST } from "../../constants/SelectList";
+import { HandlePageType } from "../../types/types";
 
-function PageNum() {
-  const [pageNum, setPageNum] = useState<number>(1);
+function PageNum({ pageNum, setPageNum }: HandlePageType) {
+  // const [pageNum, setPageNum] = useState<number>(1);
 
   const handlePageNext = () => {
     setPageNum(pageNum + 1);
@@ -34,7 +36,7 @@ function PageNum() {
       <div>
         <span>{pageNum}</span>
         <span>/</span>
-        <span>전체페이지 수</span>
+        <span>{SELECT_LIST.length}</span>
       </div>
       <button type="button" onClick={handlePageNext}>
         다음
