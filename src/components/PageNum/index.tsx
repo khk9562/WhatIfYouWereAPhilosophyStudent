@@ -5,10 +5,10 @@ import { SELECT_LIST } from "../../constants/SelectList";
 import { HandlePageType } from "../../types/types";
 
 function PageNum({ pageNum, setPageNum }: HandlePageType) {
-  // const [pageNum, setPageNum] = useState<number>(1);
-
   const handlePageNext = () => {
-    setPageNum(pageNum + 1);
+    if (pageNum < SELECT_LIST.length) {
+      setPageNum(pageNum + 1);
+    }
   };
   const handlePagePrev = () => {
     if (pageNum > 1) {
@@ -27,7 +27,7 @@ function PageNum({ pageNum, setPageNum }: HandlePageType) {
 
   return (
     <StyledPageNumBox>
-      <button type="button">
+      <button type="button" onClick={() => localStorage.clear()}>
         <Link to={"/"}>메인으로</Link>
       </button>
       <button type="button" onClick={handlePagePrev}>

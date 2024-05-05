@@ -9,6 +9,10 @@ export interface ResultType {
 export interface StringChildren {
   children: string;
 }
+export interface SelectButtonType {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  children: string;
+}
 
 export interface HandlePageType {
   pageNum: number;
