@@ -81,7 +81,7 @@ export const GlobalStyle = createGlobalStyle`
     border-radius: 10px;
     font-weight: 700;
     color: #fff;
-    &:hover {
+    &:focus {
       box-shadow: 0 2px 5px 2px rgba(0,0,0,0.1);
     }
   }

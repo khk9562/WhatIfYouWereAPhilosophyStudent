@@ -13,7 +13,7 @@ const StyledPageNumBox = styled.nav`
       padding: 8px 16px; // 안쪽 여백
       cursor: pointer; // 마우스 커서 모양 변경
   
-      &:hover {
+      &:focus {
         background-color: #e0e0e0; // 마우스 오버 시 배경색 변경
       }
 `;
