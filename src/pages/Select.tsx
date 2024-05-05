@@ -81,7 +81,13 @@ function Select() {
         {selects?.map((item: any, index: number) => (
           <SelectButton
             key={`selectButton${item.page}-${item.result}`}
-            onClick={() => onClick(pageNum, item.result)}
+            onClick={() => {
+              onClick(pageNum, item.result);
+
+              if (pageNum < SELECT_LIST.length) {
+                setPageNum(pageNum + 1);
+              }
+            }}
           >
             {item.text}
           </SelectButton>
