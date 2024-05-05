@@ -13,6 +13,7 @@ function Main() {
         style={{
           width: "50%",
           // height: "200px",
+          maxWidth: "200px",
           objectFit: "contain",
           margin: "30px 0",
         }}
