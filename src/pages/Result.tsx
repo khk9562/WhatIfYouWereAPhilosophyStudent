@@ -1,34 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ResultType } from "../types/types";
-
-const results: ResultType[] = [
-  {
-    name: "칸트",
-    description: "강의시간에 단 한번도 지각을 하지 않은 당신! 칸트일지도?",
-    character: "철학덕후",
-  },
-  {
-    name: "노자",
-    description:
-      "학교를 관두고 자연으로 돌아가고 싶은 당신! 노자와 영혼의 짝꿍!",
-    character: "자퇴생",
-  },
-  {
-    name: "벤담",
-    description:
-      "치열한 경쟁 거부한다, 성적은 차등이 아닌 모두가 행복하게 씨쁠을! 어쩌면 나 전생에 벤담이었을지 몰라…!",
-    character: "머글",
-  },
-];
+import { RESULT_LIST } from "../constants/SelectList";
+import Container from "../components/Layout/Container";
 
 function Result() {
+  const [resultList, setResultList] = useState<any>();
+
+  useEffect(() => {
+    let result = localStorage.getItem("result");
+
+    const data = RESULT_LIST.find((item) => item.result == result);
+    if (data) {
+      console.log("data", data);
+      setResultList(data);
+    }
+  }, []);
+
   return (
-    <article>
-      <h1>결과 확인</h1>
+    <Container>
+      <h3>결과 확인</h3>
       {/* <image></image> */}
-      <p></p>
-    </article>
+      <h1>{resultList?.title}</h1>
+      <p>{resultList?.description}</p>
+      <Link to={"/"} className="btn">
+        메인으로
+      </Link>
+    </Container>
   );
 }
 

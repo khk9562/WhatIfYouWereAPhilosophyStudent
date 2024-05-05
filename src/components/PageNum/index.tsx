@@ -1,5 +1,5 @@
 import React, { useState, useEffect, SetStateAction } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import StyledPageNumBox from "./style";
 import { SELECT_LIST } from "../../constants/SelectList";
 import { HandlePageType } from "../../types/types";
@@ -27,9 +27,16 @@ function PageNum({ pageNum, setPageNum }: HandlePageType) {
 
   return (
     <StyledPageNumBox>
-      <button type="button" onClick={() => localStorage.clear()}>
-        <Link to={"/"}>메인으로</Link>
-      </button>
+      <Link to={"/"}>
+        <button
+          type="button"
+          onClick={() => {
+            localStorage.clear();
+          }}
+        >
+          메인으로
+        </button>
+      </Link>
       <button type="button" onClick={handlePagePrev}>
         이전
       </button>

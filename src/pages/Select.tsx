@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Router } from "react-router-dom";
 import Container from "../components/Layout/Container";
 import PageNum from "../components/PageNum";
 import SelectButton from "../components/SelectButton";
@@ -93,7 +93,7 @@ function Select() {
           className="btn"
           onClick={() => findMostFrequentValue()}
         >
-          결과 확인
+          <Link to={"/result"}>결과 확인</Link>
         </button>
       )}
     </Container>
