@@ -11,11 +11,14 @@ const StyledSelectButton = styled.button`
   min-height: 80px;
   font-size: 16px;
   font-weight: 500;
+  color: #333;
   &:hover {
     box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.1);
+    color: #000;
   }
   &:focus {
-    border: 1px solid #333;
+    border: 2px solid #333;
+    color: #000;
   }
 `;
 

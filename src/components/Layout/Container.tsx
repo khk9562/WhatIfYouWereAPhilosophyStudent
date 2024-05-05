@@ -11,8 +11,7 @@ function Container({ children }: any) {
         gap: "12px",
         width: "100%",
         height: "100%",
-        padding: "0 24px",
-        // marginBottom: "100px",
+        padding: "24px",
       }}
     >
       {children}

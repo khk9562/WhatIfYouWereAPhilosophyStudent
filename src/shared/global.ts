@@ -48,7 +48,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "Pretendard";
     font-weight: 400;
     letter-spacing: -0.02px;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.5;
 }
 #root {
@@ -68,7 +68,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   a {
     text-decoration: none;
-    color: inherit;
+    color: #000;
 
   }
   .btn {
