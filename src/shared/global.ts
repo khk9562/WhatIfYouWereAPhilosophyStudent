@@ -59,7 +59,7 @@ export const GlobalStyle = createGlobalStyle`
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0 24px;
+      padding: 0;
     
   }
   h1 {
