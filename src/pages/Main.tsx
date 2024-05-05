@@ -11,8 +11,8 @@ function Main() {
         src={mainImg}
         alt="main"
         style={{
-          width: "200px",
-          height: "200px",
+          width: "50%",
+          // height: "200px",
           objectFit: "contain",
           margin: "30px 0",
         }}
