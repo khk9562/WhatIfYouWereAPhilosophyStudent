@@ -52,13 +52,14 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.5;
 }
 #root {
-      max-width: 800px;
+      max-width: 700px;
       min-height: 100vh;
       margin: 0 auto;
       background-color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 0 24px;
     
   }
   h1 {

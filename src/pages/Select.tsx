@@ -88,13 +88,13 @@ function Select() {
         ))}
       </div>
       {pageNum === 8 && (
-        <button
-          type="button"
-          className="btn"
+        <Link
+          to={"/result"}
           onClick={() => findMostFrequentValue()}
+          className="btn"
         >
-          <Link to={"/result"}>결과 확인</Link>
-        </button>
+          결과 확인
+        </Link>
       )}
     </Container>
   );
