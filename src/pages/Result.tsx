@@ -18,7 +18,7 @@ function Result() {
   }, []);
 
   return (
-    <Container>
+    <Container isResult={true}>
       <h3>결과 확인</h3>
       {/* <image></image> */}
       <h1>{resultList?.title}</h1>

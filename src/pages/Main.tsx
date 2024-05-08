@@ -6,7 +6,7 @@ import mainImg from "../assets/icons/philosopher.png";
 function Main() {
   return (
     <Container>
-      <h1>당신이 21세기 대한민국 대학 철학과에 진학했다면?!</h1>
+      <h1>21세기 대한민국 철학과에 진학했다면?!</h1>
       <img
         src={mainImg}
         alt="main"
