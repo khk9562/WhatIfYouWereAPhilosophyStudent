@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import StyledSelectButton from "./style";
 import { SelectButtonType } from "../../types/types";
-function SelectButton({ children, onClick }: SelectButtonType) {
+function SelectButton({ children, onClick, page }: SelectButtonType) {
   const [isActive, setIsActive] = useState<boolean>(false);
+
   // focus 이벤트 핸들러
   const handleFocus = () => {
     setIsActive(true);
@@ -16,6 +17,10 @@ function SelectButton({ children, onClick }: SelectButtonType) {
 
   // 조건부 클래스 이름을 설정합니다.
   const buttonClassName = isActive ? "active" : "";
+
+  useEffect(() => {
+    setIsActive(false);
+  }, [page]);
 
   return (
     <StyledSelectButton

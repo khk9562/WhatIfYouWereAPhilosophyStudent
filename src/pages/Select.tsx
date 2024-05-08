@@ -88,6 +88,7 @@ function Select() {
                 setPageNum(pageNum + 1);
               }
             }}
+            page={pageNum}
           >
             {item.text}
           </SelectButton>
