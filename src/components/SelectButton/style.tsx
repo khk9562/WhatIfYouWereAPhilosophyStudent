@@ -12,7 +12,6 @@ const StyledSelectButton = styled.button`
   font-size: 16px;
   font-weight: 500;
   color: #333;
-  &:focus,
   &.active {
     box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.1);
     // border: 2px solid #333;

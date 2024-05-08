@@ -1,34 +1,30 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useFetcher } from "react-router-dom";
 import StyledSelectButton from "./style";
 import { SelectButtonType } from "../../types/types";
-function SelectButton({ children, onClick, page }: SelectButtonType) {
+function SelectButton({
+  children,
+  onClick,
+  pageNum,
+  result,
+  selections,
+}: SelectButtonType) {
   const [isActive, setIsActive] = useState<boolean>(false);
 
-  // focus 이벤트 핸들러
-  const handleFocus = () => {
-    setIsActive(true);
-  };
-
-  // blur 이벤트 핸들러
-  const handleBlur = () => {
-    setIsActive(false);
-  };
-
-  // 조건부 클래스 이름을 설정합니다.
-  const buttonClassName = isActive ? "active" : "";
-
   useEffect(() => {
-    setIsActive(false);
-  }, [page]);
+    const selectedResult = selections.find(
+      (selection) => selection.page === pageNum
+    );
+
+    if (selectedResult && selectedResult.result === result) {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
+    }
+  }, [selections, pageNum, result]);
 
   return (
-    <StyledSelectButton
-      className={buttonClassName}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-      onClick={onClick}
-    >
+    <StyledSelectButton className={isActive ? "active" : ""} onClick={onClick}>
       {children}
     </StyledSelectButton>
   );

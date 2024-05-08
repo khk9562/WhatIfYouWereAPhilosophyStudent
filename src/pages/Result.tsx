@@ -12,7 +12,6 @@ function Result() {
 
     const data = RESULT_LIST.find((item) => item.result == result);
     if (data) {
-      console.log("data", data);
       setResultList(data);
     }
   }, []);

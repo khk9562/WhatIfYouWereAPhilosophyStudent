@@ -12,7 +12,9 @@ export interface StringChildren {
 export interface SelectButtonType {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   children: string;
-  page: number;
+  pageNum: number;
+  result: string;
+  selections: any[];
 }
 
 export interface HandlePageType {

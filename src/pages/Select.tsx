@@ -5,24 +5,37 @@ import PageNum from "../components/PageNum";
 import SelectButton from "../components/SelectButton";
 import Question from "../components/Question";
 import { SELECT_LIST } from "../constants/SelectList";
-import StyledPageNumBox from "../components/PageNum/style";
 
 function Select() {
   const [pageNum, setPageNum] = useState<number>(1);
   const [quest, setQuest] = useState<string>("");
   const [selects, setSelects] = useState<any>();
+  const [selections, setSelections] = useState<any[]>([]);
 
   const onClick = (page: number, result: string) => {
-    localStorage.setItem(`page${page}`, result);
+    if (pageNum < SELECT_LIST.length) {
+      setPageNum(pageNum + 1);
+    }
+    setSelections((prevSelections) => {
+      // 동일한 페이지에 대한 기존 선택을 필터링하여 제거합니다.
+      const filteredSelections = prevSelections.filter(
+        (selection) => selection.page !== page
+      );
+      // 필터링된 배열에 새로운 선택을 추가합니다.
+      return [...filteredSelections, { page, result }];
+    });
   };
 
-  function findMostFrequentValue() {
+  function findMostFrequentValue(selections: any[]) {
+    if (selections.length < SELECT_LIST.length) {
+      alert("모든 선택지를 선택해주세요.");
+      return;
+    }
     // 값을 저장할 객체 초기화
     const valueCounts: Record<string, number> = {};
 
-    // localStorage에서 값을 읽어와 빈도수 계산
-    for (let i = 1; i <= SELECT_LIST.length; i++) {
-      const value = localStorage.getItem(`page${i}`);
+    selections.forEach((selection) => {
+      const value = selection.result;
       if (value) {
         if (valueCounts[value]) {
           valueCounts[value]++;
@@ -30,7 +43,7 @@ function Select() {
           valueCounts[value] = 1;
         }
       }
-    }
+    });
 
     // 가장 많이 나온 값을 찾기
     let mostFrequentValue = "";
@@ -78,17 +91,15 @@ function Select() {
           margin: "12px",
         }}
       >
-        {selects?.map((item: any, index: number) => (
+        {selects?.map((item: any) => (
           <SelectButton
             key={`selectButton${item.page}-${item.result}`}
             onClick={() => {
               onClick(pageNum, item.result);
-
-              if (pageNum < SELECT_LIST.length) {
-                setPageNum(pageNum + 1);
-              }
             }}
-            page={pageNum}
+            result={item.result}
+            pageNum={pageNum}
+            selections={selections}
           >
             {item.text}
           </SelectButton>
@@ -97,7 +108,7 @@ function Select() {
       {pageNum === 8 && (
         <Link
           to={"/result"}
-          onClick={() => findMostFrequentValue()}
+          onClick={() => findMostFrequentValue(selections)}
           className="btn"
         >
           결과 확인
