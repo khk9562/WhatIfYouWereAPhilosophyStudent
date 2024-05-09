@@ -1,5 +1,11 @@
 import React, { useState, useEffect, SetStateAction } from "react";
 
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
+
 export interface ResultType {
   name: string;
   description: string;

@@ -14,6 +14,14 @@ function Result() {
     if (data) {
       setResultList(data);
     }
+
+    // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해야 합니다.
+    if (!window.Kakao.isInitialized()) {
+      window.Kakao.init(process.env.REACT_APP_KAKAO_KEY);
+    }
+
+    // SDK 초기화 여부를 판단합니다.
+    console.log(window.Kakao.isInitialized());
   }, []);
 
   return (
