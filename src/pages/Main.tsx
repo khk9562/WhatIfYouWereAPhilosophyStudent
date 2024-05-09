@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Container from "../components/Layout/Container";
 import mainImg from "../assets/icons/philosopher.png";
 
 function Main() {
+
+  useEffect(() => {
+    if(!window.Kakao.isInitialized()) {
+      window.Kakao.init(process.env.REACT_APP_KAKAO_KEY);
+  },[])
+
   return (
     <Container>
       <h1>21세기 대한민국 철학과에 진학했다면?!</h1>
