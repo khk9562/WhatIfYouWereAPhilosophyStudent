@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Container from "../components/Layout/Container";
 import mainImg from "../assets/icons/philosopher.png";
+import KaKaoShareBtn from "../components/KaKaoShareBtn";
 
 function Main() {
   useEffect(() => {
@@ -38,6 +39,7 @@ function Main() {
       <Link className="btn" to={`/select`} style={{ marginTop: "20px" }}>
         시작하기
       </Link>
+      <KaKaoShareBtn />
     </Container>
   );
 }
