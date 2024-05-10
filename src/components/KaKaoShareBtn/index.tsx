@@ -27,16 +27,16 @@ export default () => {
         description: "나의 철학과 포지션을 확인해보세요!",
         imageUrl: { resultUrl } + "icons/philosopher.png",
         link: {
-          webUrl: resultUrl,
-          mobileWebUrl: resultUrl,
+          webUrl: realUrl,
+          mobileWebUrl: realUrl,
         },
       },
       buttons: [
         {
           title: "나도 테스트 하러가기",
           link: {
-            webUrl: resultUrl,
-            mobileWebUrl: resultUrl,
+            webUrl: realUrl,
+            mobileWebUrl: realUrl,
           },
         },
       ],
