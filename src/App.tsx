@@ -5,11 +5,20 @@ import Main from "./pages/Main";
 import Select from "./pages/Select";
 import Result from "./pages/Result";
 import ReactGA from "react-ga4";
+import { useLocation } from "react-router-dom";
 
 function App() {
+  const location = useLocation();
+
   useEffect(() => {
     ReactGA.initialize(`${process.env.REACT_PUBLIC_GA_ID}`);
   }, []);
+
+  useEffect(() => {
+    ReactGA.send({
+      hitType: "pageview",
+    });
+  }, [location]);
 
   return (
     <Routes>
