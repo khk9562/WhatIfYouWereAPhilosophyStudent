@@ -27,3 +27,8 @@ export interface HandlePageType {
   pageNum: number;
   setPageNum: React.Dispatch<SetStateAction<number>>;
 }
+
+export interface KaKaoShareBtnType {
+  kind: string;
+  result: any;
+}

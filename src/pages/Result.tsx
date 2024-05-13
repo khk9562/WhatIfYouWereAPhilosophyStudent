@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ResultType } from "../types/types";
 import { RESULT_LIST } from "../constants/SelectList";
 import Container from "../components/Layout/Container";
+import KaKaoShareBtn from "../components/KaKaoShareBtn";
 
 function Result() {
   const [resultList, setResultList] = useState<any>();
@@ -14,14 +15,6 @@ function Result() {
     if (data) {
       setResultList(data);
     }
-
-    // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해야 합니다.
-    if (!window.Kakao.isInitialized()) {
-      window.Kakao.init(process.env.REACT_APP_KAKAO_KEY);
-    }
-
-    // SDK 초기화 여부를 판단합니다.
-    console.log(window.Kakao.isInitialized());
   }, []);
 
   return (
@@ -30,6 +23,7 @@ function Result() {
       {/* <image></image> */}
       <h1>{resultList?.title}</h1>
       <p>{resultList?.description}</p>
+      <KaKaoShareBtn kind="result" result={resultList.result || ""} />
       <Link to={"/"} className="btn">
         메인으로
       </Link>

@@ -1,8 +1,9 @@
 import { useEffect } from "react";
+import { KaKaoShareBtnType } from "../../types/types";
 // kakao 기능 동작을 위해 넣어준다.
 const { Kakao } = window;
 
-export default () => {
+function KaKaoShareBtn({ kind, result }: KaKaoShareBtnType) {
   // 배포한 자신의 사이트
   const realUrl = "https://what-if-you-were-a-philosophy-student.vercel.app";
   // 로컬 주소 (localhost 3002)
@@ -20,27 +21,51 @@ export default () => {
 
   const shareKakao = () => {
     console.log("shareKakao 함수 실행");
-    Kakao.Share.sendDefault({
-      objectType: "feed",
-      content: {
-        title: "철BTI",
-        description: "나의 철학과 포지션을 확인해보세요!",
-        imageUrl: { resultUrl } + "icons/philosopher.png",
-        link: {
-          webUrl: realUrl,
-          mobileWebUrl: realUrl,
-        },
-      },
-      buttons: [
-        {
-          title: "나도 테스트 하러가기",
+    if (kind === "main") {
+      Kakao.Share.sendDefault({
+        objectType: "feed",
+        content: {
+          title: "철BTI",
+          description: "나의 철학과 포지션을 확인해보세요!",
+          imageUrl: { resultUrl } + "icons/philosopher.png",
           link: {
             webUrl: realUrl,
             mobileWebUrl: realUrl,
           },
         },
-      ],
-    });
+        buttons: [
+          {
+            title: "나도 테스트 하러가기",
+            link: {
+              webUrl: realUrl,
+              mobileWebUrl: realUrl,
+            },
+          },
+        ],
+      });
+    } else {
+      Kakao.Share.sendDefault({
+        objectType: "feed",
+        content: {
+          title: { result },
+          description: "나의 철학과 포지션을 확인해보세요!",
+          imageUrl: { resultUrl } + "icons/philosopher.png",
+          link: {
+            webUrl: realUrl,
+            mobileWebUrl: realUrl,
+          },
+        },
+        buttons: [
+          {
+            title: "나도 테스트 하러가기",
+            link: {
+              webUrl: realUrl,
+              mobileWebUrl: realUrl,
+            },
+          },
+        ],
+      });
+    }
   };
 
   return (
@@ -57,4 +82,6 @@ export default () => {
       </button>
     </>
   );
-};
+}
+
+export default KaKaoShareBtn;
