@@ -3,7 +3,7 @@ import { KaKaoShareBtnType } from "../../types/types";
 // kakao 기능 동작을 위해 넣어준다.
 const { Kakao } = window;
 
-function KaKaoShareBtn({ kind, result }: KaKaoShareBtnType) {
+function KaKaoShareBtn({ kind, result, desc }: KaKaoShareBtnType) {
   // 배포한 자신의 사이트
   const realUrl = "https://what-if-you-were-a-philosophy-student.vercel.app";
   // 로컬 주소 (localhost 3002)
@@ -47,8 +47,8 @@ function KaKaoShareBtn({ kind, result }: KaKaoShareBtnType) {
       Kakao.Share.sendDefault({
         objectType: "feed",
         content: {
-          title: { result },
-          description: "나의 철학과 포지션을 확인해보세요!",
+          title: `${result}`,
+          description: `${desc}`,
           imageUrl: { resultUrl } + "icons/philosopher.png",
           link: {
             webUrl: realUrl,

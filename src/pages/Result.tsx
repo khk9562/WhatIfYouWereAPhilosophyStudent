@@ -23,7 +23,11 @@ function Result() {
       {/* <image></image> */}
       <h1>{resultList?.title}</h1>
       <p>{resultList?.description}</p>
-      <KaKaoShareBtn kind="result" result={resultList.result || ""} />
+      <KaKaoShareBtn
+        kind="result"
+        result={resultList?.title}
+        desc={resultList?.description}
+      />
       <Link to={"/"} className="btn">
         메인으로
       </Link>

@@ -30,5 +30,6 @@ export interface HandlePageType {
 
 export interface KaKaoShareBtnType {
   kind: string;
-  result: any;
+  result?: string;
+  desc?: string;
 }

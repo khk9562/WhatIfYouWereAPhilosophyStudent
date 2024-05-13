@@ -39,7 +39,7 @@ function Main() {
       <Link className="btn" to={`/select`} style={{ marginTop: "20px" }}>
         시작하기
       </Link>
-      <KaKaoShareBtn kind="main" result="" />
+      <KaKaoShareBtn kind="main" />
     </Container>
   );
 }
