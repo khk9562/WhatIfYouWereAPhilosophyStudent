@@ -36,10 +36,20 @@ function Main() {
         과연 철학과에서 어떤 포지션을 맡게 될까요?
       </p>
 
-      <Link className="btn" to={`/select`} style={{ marginTop: "20px" }}>
-        시작하기
-      </Link>
-      <KaKaoShareBtn kind="main" />
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "8px",
+          marginTop: "20px",
+        }}
+      >
+        <Link className="btn" to={`/select`}>
+          시작하기
+        </Link>
+        <KaKaoShareBtn kind="main" />
+      </div>
     </Container>
   );
 }

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { KaKaoShareBtnType } from "../../types/types";
-// kakao 기능 동작을 위해 넣어준다.
+import styled, { css } from "styled-components";
+import KaKaoShareImg from "../../assets/icons/kakao.png";
 const { Kakao } = window;
 
 function KaKaoShareBtn({ kind, result, desc }: KaKaoShareBtnType) {
@@ -70,18 +71,24 @@ function KaKaoShareBtn({ kind, result, desc }: KaKaoShareBtnType) {
 
   return (
     <>
-      <button
-        type="button"
-        className="grey-btn"
+      <StyledShareBtn
         onClick={() => {
           shareKakao();
         }}
       >
-        {" "}
-        카카오톡 공유하기{" "}
-      </button>
+        <img src={KaKaoShareImg} width={35} height={35} alt="kakao" />
+        <span>공유</span>
+      </StyledShareBtn>
     </>
   );
 }
 
 export default KaKaoShareBtn;
+
+const StyledShareBtn = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  cursor: pointer;
+`;
