@@ -22,15 +22,15 @@ function Result() {
       <h3>결과 확인</h3>
       {/* <image></image> */}
       <h1>{resultList?.title}</h1>
-      <p>{resultList?.description}</p>
+      <p style={{ padding: "0 3vw" }}>{resultList?.description}</p>
+      <Link to={"/"} className="btn">
+        메인으로
+      </Link>
       <KaKaoShareBtn
         kind="result"
         result={resultList?.title}
         desc={resultList?.description}
       />
-      <Link to={"/"} className="btn">
-        메인으로
-      </Link>
     </Container>
   );
 }

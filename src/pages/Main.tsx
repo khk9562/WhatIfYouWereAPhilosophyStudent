@@ -39,9 +39,10 @@ function Main() {
       <div
         style={{
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          gap: "8px",
+          gap: "12px",
           marginTop: "20px",
         }}
       >
