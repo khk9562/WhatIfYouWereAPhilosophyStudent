@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, Router } from "react-router-dom";
+import { Link, Router, useNavigate } from "react-router-dom";
 import Container from "../components/Layout/Container";
 import PageNum from "../components/PageNum";
 import SelectButton from "../components/SelectButton";
@@ -7,6 +7,8 @@ import Question from "../components/Question";
 import { SELECT_LIST } from "../constants/SelectList";
 
 function Select() {
+  const navigate = useNavigate();
+
   const [pageNum, setPageNum] = useState<number>(1);
   const [quest, setQuest] = useState<string>("");
   const [selects, setSelects] = useState<any>();
@@ -57,6 +59,7 @@ function Select() {
 
     if (mostFrequentValue) {
       localStorage.setItem("result", mostFrequentValue);
+      navigate("/result");
     } else {
       alert("결과 확인 중 에러 발생");
     }
@@ -106,13 +109,15 @@ function Select() {
         ))}
       </div>
       {pageNum === 8 && (
-        <Link
-          to={"/result"}
+        // <Link to={"/result"}>
+        <button
+          type="button"
           onClick={() => findMostFrequentValue(selections)}
           className="btn"
         >
           결과 확인
-        </Link>
+        </button>
+        // </Link>
       )}
     </Container>
   );
