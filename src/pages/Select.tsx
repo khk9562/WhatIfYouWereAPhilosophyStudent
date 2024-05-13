@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link, Router, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Container from "../components/Layout/Container";
 import PageNum from "../components/PageNum";
 import SelectButton from "../components/SelectButton";
 import Question from "../components/Question";
 import { SELECT_LIST } from "../constants/SelectList";
+import ReactGA from "react-ga4";
 
 function Select() {
   const navigate = useNavigate();
@@ -58,6 +59,13 @@ function Select() {
     }
 
     if (mostFrequentValue) {
+      ReactGA.event({
+        category: "result",
+        action: "click",
+        label: "결과 확인하기",
+        value: 1,
+      });
+
       localStorage.setItem("result", mostFrequentValue);
       navigate("/result");
     } else {
@@ -71,7 +79,7 @@ function Select() {
   }, []);
 
   useEffect(() => {
-    const currentPageData = SELECT_LIST.find((item) => item.page == pageNum);
+    const currentPageData = SELECT_LIST.find((item) => item.page === pageNum);
 
     if (currentPageData) {
       setQuest(currentPageData.title);
@@ -109,15 +117,13 @@ function Select() {
         ))}
       </div>
       {pageNum === 8 && (
-        // <Link to={"/result"}>
-        <button
-          type="button"
+        <div
+          style={{ cursor: "pointer" }}
           onClick={() => findMostFrequentValue(selections)}
           className="btn"
         >
           결과 확인
-        </button>
-        // </Link>
+        </div>
       )}
     </Container>
   );
