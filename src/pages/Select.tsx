@@ -5,7 +5,6 @@ import PageNum from "../components/PageNum";
 import SelectButton from "../components/SelectButton";
 import Question from "../components/Question";
 import { SELECT_LIST } from "../constants/SelectList";
-import ReactGA from "react-ga4";
 
 function Select() {
   const navigate = useNavigate();
@@ -59,13 +58,6 @@ function Select() {
     }
 
     if (mostFrequentValue) {
-      ReactGA.event({
-        category: "result",
-        action: "click",
-        label: "결과 확인하기",
-        value: 1,
-      });
-
       localStorage.setItem("result", mostFrequentValue);
       navigate("/result");
     } else {

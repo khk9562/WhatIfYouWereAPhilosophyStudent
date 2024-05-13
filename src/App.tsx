@@ -15,9 +15,11 @@ function App() {
   }, []);
 
   useEffect(() => {
-    ReactGA.send({
-      hitType: "pageview",
-    });
+    if (location.pathname === "/result") {
+      ReactGA.send({
+        hitType: "pageview",
+      });
+    }
   }, [location]);
 
   return (
