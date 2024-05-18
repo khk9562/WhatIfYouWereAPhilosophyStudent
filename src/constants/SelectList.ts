@@ -1,3 +1,8 @@
+import imgA from "../assets/icons/rabbit.png";
+import imgB from "../assets/icons/unicorn.png";
+import imgC from "../assets/icons/tree.png";
+import imgD from "../assets/icons/rainbow.png";
+
 export const SELECT_LIST = [
   {
     page: 1,
@@ -190,27 +195,27 @@ export const RESULT_LIST = [
     title: "머글",
     description:
       "흠.. 당신은 철학과에 소속은 되어있지만 별다른 뜻을 가지고 있지는 않군요. 철학 전공만으로는 21세기 대한민국에서 먹고 살기는 쉽지 않을 겁니다. 당신이 철학과에 진학했다면 졸업 전에 한시빨리 새로운 전공을 찾거나 복수전공을 고려해보는 것도 좋을 것 같습니다. 파이팅!",
-    img: "./src/assets/icons/rabbit.png",
+    img: imgA,
   },
   {
     result: "b",
     title: "탈주자",
     description:
       "앗 당신은 철학과에 온 것을 후회하는군요! 당신이 철학과에 진학했다면 일찌감치 그만두고 다른 길을 찾아 나섰을 겁니다. 오히려 어떤 연유로 철학과에 온 건지 궁금하군요. 혹시 성적 맞춰서? 하하.",
-    img: "./src/assets/icons/unicorn.png",
+    img: imgB,
   },
   {
     result: "c",
     title: "철덕",
     description:
       "와우 당신은 철학 덕후로서의 소질이 보입니다! 당신은 대학 진학 전부터 철학에 관심이 있었거나, 철학과 진학 후에라도 철학이 재밌다고 느낄 수 있는 훌륭한 소크라테스의 후예입니다. 21세기 대한민국에서 철학만으로 먹고 사는 건 참 힘들지만, 당신의 앞날을 응원합니다.^^ 파이팅!",
-    img: "./src/assets/icons/tree.png",
+    img: imgC,
   },
   {
     result: "d",
     title: "또라이",
     description:
       "저런.. 어쩌다 그런 선택을...! 당신은 철학이 중요한 게 아닙니다. 어디서든 소신 있게 살아갈 당신을 응원합니다.",
-    img: "./src/assets/icons/rainbow.png",
+    img: imgD,
   },
 ];
