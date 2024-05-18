@@ -8,7 +8,7 @@ const StyledQuestion = styled.h1`
   background-color: var(--point);
   color: rgb(249 250 251);
   line-hight: 3.75rem;
-  font-size: 0.95rem;
+  font-size: 1rem;
   border-radius: 10px;
   margin-bottom: 12px;
 `;
