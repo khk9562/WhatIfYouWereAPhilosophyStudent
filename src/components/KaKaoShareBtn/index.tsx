@@ -28,7 +28,7 @@ function KaKaoShareBtn({ kind, result, desc, imgsrc }: KaKaoShareBtnType) {
         content: {
           title: "철BTI",
           description: "나의 철학과 포지션을 확인해보세요!",
-          imageUrl: { resultUrl } + "/src/assets/icons/philosopher.png",
+          // imageUrl: { resultUrl } + "/src/assets/icons/philosopher.png",
           link: {
             webUrl: realUrl,
             mobileWebUrl: realUrl,
@@ -50,7 +50,7 @@ function KaKaoShareBtn({ kind, result, desc, imgsrc }: KaKaoShareBtnType) {
         content: {
           title: `${result}`,
           description: `${desc}`,
-          imageUrl: { imgsrc },
+          // imageUrl: {`${resultUrl}$`  imgsrc},
           link: {
             webUrl: realUrl,
             mobileWebUrl: realUrl,
