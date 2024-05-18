@@ -17,13 +17,9 @@ function Container({ children, isResult }: any) {
           : {
               display: "flex",
               flexDirection: "column",
-              justifyContent: "space-around",
+              justifyContent: "center",
               alignItems: "center",
-              gap: "30px",
-              width: "100%",
-              height: "100%",
               padding: "32px",
-              fontSize: "18px",
             }
       }
     >

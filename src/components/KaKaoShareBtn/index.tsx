@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 import KaKaoShareImg from "../../assets/icons/kakao.png";
 const { Kakao } = window;
 
-function KaKaoShareBtn({ kind, result, desc }: KaKaoShareBtnType) {
+function KaKaoShareBtn({ kind, result, desc, imgsrc }: KaKaoShareBtnType) {
   // 배포한 자신의 사이트
   const realUrl = "https://what-if-you-were-a-philosophy-student.vercel.app";
   // 로컬 주소 (localhost 3002)
@@ -28,7 +28,7 @@ function KaKaoShareBtn({ kind, result, desc }: KaKaoShareBtnType) {
         content: {
           title: "철BTI",
           description: "나의 철학과 포지션을 확인해보세요!",
-          imageUrl: { resultUrl } + "icons/philosopher.png",
+          imageUrl: { realUrl } + "./src/assets/icons/philosopher.png",
           link: {
             webUrl: realUrl,
             mobileWebUrl: realUrl,

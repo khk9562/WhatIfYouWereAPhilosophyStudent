@@ -23,8 +23,7 @@ function Main() {
         alt="main"
         style={{
           width: "50%",
-          // height: "200px",
-          maxWidth: "200px",
+          maxWidth: "180px",
           objectFit: "contain",
           margin: "30px 0",
         }}

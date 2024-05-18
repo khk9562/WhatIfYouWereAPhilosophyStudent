@@ -32,4 +32,5 @@ export interface KaKaoShareBtnType {
   kind: string;
   result?: string;
   desc?: string;
+  imgsrc?: string;
 }
