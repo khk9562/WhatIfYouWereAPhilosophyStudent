@@ -81,7 +81,6 @@ function Select() {
 
   return (
     <Container>
-      <PageNum pageNum={pageNum} setPageNum={setPageNum} />
       <Question>{quest}</Question>
 
       <div
@@ -117,6 +116,7 @@ function Select() {
           결과 확인
         </div>
       )}
+      <PageNum pageNum={pageNum} setPageNum={setPageNum} />
     </Container>
   );
 }

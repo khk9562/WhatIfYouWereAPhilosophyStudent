@@ -4,17 +4,18 @@ const StyledPageNumBox = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
+  margin-top: 20px;
 
     button {
-      background-color: #f0f0f0; // 버튼 배경색
-      color: #333; // 버튼 글자색
-      border: none; // 테두리 제거
-      padding: 8px 16px; // 안쪽 여백
-      cursor: pointer; // 마우스 커서 모양 변경
-  
-      &:focus {
-        background-color: #e0e0e0; // 마우스 오버 시 배경색 변경
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+      margin: 0 5px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 `;
 

@@ -3,6 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import StyledPageNumBox from "./style";
 import { SELECT_LIST } from "../../constants/SelectList";
 import { HandlePageType } from "../../types/types";
+import HomeIcon from "../../assets/icons/home.png";
+import LeftIcon from "../../assets/icons/left.png";
+import RightIcon from "../../assets/icons/right.png";
 
 function PageNum({ pageNum, setPageNum }: HandlePageType) {
   const handlePageNext = () => {
@@ -30,23 +33,24 @@ function PageNum({ pageNum, setPageNum }: HandlePageType) {
       <Link to={"/"}>
         <button
           type="button"
+          style={{ marginTop: "7px", width: "20px", height: "20px" }}
           onClick={() => {
             localStorage.clear();
           }}
         >
-          메인으로
+          <img src={HomeIcon} width={35} height={35} alt="homeIcon" />
         </button>
       </Link>
       <button type="button" onClick={handlePagePrev}>
-        이전
+        <img src={LeftIcon} width={35} height={35} alt="LeftIcon" />
       </button>
       <div>
         <span>{pageNum}</span>
-        <span>/</span>
+        <span> / </span>
         <span>{SELECT_LIST.length}</span>
       </div>
       <button type="button" onClick={handlePageNext}>
-        다음
+        <img src={RightIcon} width={35} height={35} alt="RightIcon" />
       </button>
     </StyledPageNumBox>
   );
