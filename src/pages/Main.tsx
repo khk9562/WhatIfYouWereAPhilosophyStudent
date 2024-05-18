@@ -17,7 +17,7 @@ function Main() {
 
   return (
     <Container>
-      <h1>21세기 대한민국 철학과에 진학했다면?!</h1>
+      <h1 className="title">21세기 대한민국 철학과에 진학했다면?!</h1>
       <img
         src={mainImg}
         alt="main"
@@ -29,7 +29,7 @@ function Main() {
           margin: "30px 0",
         }}
       />
-      <p>
+      <p className="desc">
         21세기 자본주의의 나라 대한민국에서 당신은 대학의 철학과에 진학하게
         되었습니다.
         <br />
@@ -39,17 +39,16 @@ function Main() {
       <div
         style={{
           display: "flex",
-          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
           gap: "12px",
           marginTop: "20px",
         }}
       >
+        <KaKaoShareBtn kind="main" />
         <Link className="btn" to={`/select`}>
           시작하기
         </Link>
-        <KaKaoShareBtn kind="main" />
       </div>
     </Container>
   );

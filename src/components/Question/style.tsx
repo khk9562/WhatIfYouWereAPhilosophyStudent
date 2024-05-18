@@ -1,18 +1,13 @@
 import styled, { css } from "styled-components";
 
 const StyledQuestion = styled.h1`
-  box-sizing: border-box;
-  font-size: 18px;
-  letter-spacing: -0.2px;
   font-weight: 500;
-  padding: 32px;
-  margin: 12px;
-  margin-bottom: 8px;
-  background-color: #333;
-  color: #eee;
+  padding: 0.75rem 2rem;
+  background-color: var(--point);
+  color: rgb(249 250 251);
+  line-hight: 1.25rem;
+  font-size: 0.875rem;
   border-radius: 10px;
-  width: 100%;
-  text-align: center;
 `;
 
 export default StyledQuestion;

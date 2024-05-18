@@ -35,7 +35,9 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 900;
     src: url('./assets/fonts/Pretendard-Black.woff') format('woff'),
   }
-  
+  :root {
+    --point: #6E44FF;
+  }
   * {
     margin: 0;
     padding: 0;
@@ -52,38 +54,60 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.5;
 }
 #root {
-      max-width: 700px;
-      min-height: 100vh;
-      margin: 0 auto;
-      background-color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0;
+    max-width: 700px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
     
   }
-  h1 {
+  .title {
     font-size: 30px;
     font-weight: 700;
+    margin-top: 30px;
+    color: #171717;
+  }
+  .subtitle {
+    font-size: 14px;
+    font-weight: 300;
+    color: #18181B;
+  }
+  .desc {
+    color: #6B7280;
+    font-size: 16px;
+    margin-top: 16px;
   }
   a {
     text-decoration: none;
     color: #000;
-
+  }
+  button {
+    border: none;
+    background: none;
+    box-shadow: none;
   }
   .btn {
-    background-color: #FF8427;
-    max-width: 80%;
-    min-width: 350px;
-    height: 55px;
-    line-height: 55px;
+    background-color: var(--point);
     text-align: center;
     border-radius: 10px;
-    font-weight: 700;
-    color: #fff;
+    font-size: 0.875rem;
+    line-hight: 1.25rem;
+    font-weight: 500;
+    color: rgb(249 250 251);
+    padding: 0.75rem 2rem;
     &:focus {
-      box-shadow: 0 2px 5px 2px rgba(0,0,0,0.1);
+      --tw--shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+      --tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+      box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
     }
+  }
+  .shadow {
+    --tw--shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
 `;

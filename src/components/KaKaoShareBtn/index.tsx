@@ -71,24 +71,18 @@ function KaKaoShareBtn({ kind, result, desc }: KaKaoShareBtnType) {
 
   return (
     <>
-      <StyledShareBtn
+      <button
+        type="button"
+        className="sharebtn"
+        style={{ cursor: "pointer" }}
         onClick={() => {
           shareKakao();
         }}
       >
         <img src={KaKaoShareImg} width={35} height={35} alt="kakao" />
-        <span>공유</span>
-      </StyledShareBtn>
+      </button>
     </>
   );
 }
 
 export default KaKaoShareBtn;
-
-const StyledShareBtn = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 12px;
-  cursor: pointer;
-`;

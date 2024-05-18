@@ -19,7 +19,7 @@ function Result() {
 
   return (
     <Container isResult={true}>
-      <h3>결과 확인</h3>
+      <h6>결과 확인</h6>
       {/* <image></image> */}
       <h1>{resultList?.title}</h1>
       <p style={{ padding: "0 3vw" }}>{resultList?.description}</p>
