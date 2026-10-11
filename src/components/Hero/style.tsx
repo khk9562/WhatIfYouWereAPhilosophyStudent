@@ -35,7 +35,7 @@ export const HeroTitle = styled.h1`
 
 // 제목 속 강조 단어. 보라 바탕에서 가장 먼저 눈에 띄도록 노란 글자로 쓴다
 export const Mark = styled.span`
-  color: #ffe066;
+  color: var(--highlight);
 `;
 
 // 흰 원판과 후광 안에 놓이는 캐릭터 그림
@@ -188,6 +188,6 @@ export const TypeBadge = styled.li<{ $current: boolean }>`
     border-radius: 50%;
     background: #fff;
     box-shadow: ${({ $current }) =>
-      $current ? "0 0 0 3px #ffd64d, 0 8px 18px -6px rgb(32 0 96 / 0.6)" : "none"};
+      $current ? "0 0 0 3px var(--highlight), 0 8px 18px -6px rgb(32 0 96 / 0.6)" : "none"};
   }
 `;

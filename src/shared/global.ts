@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
   :root {
     --point: #6E44FF;
     --point-soft: #F4F0FF;
+    --highlight: #FFE066; /* 보라 바탕 위 강조(제목 강조 단어, 내 결과 테두리) */
 
     /* 글자 색: 제목 > 본문 > 보조 */
     --text-strong: #171717;
@@ -68,36 +69,6 @@ export const GlobalStyle = createGlobalStyle`
     align-items: center;
     padding: 0;
   }
-  .eyebrow {
-    font-size: var(--font-label);
-    font-weight: var(--weight-strong);
-    line-height: var(--leading-normal);
-    letter-spacing: 0.04em;
-    color: var(--point);
-  }
-  .title {
-    font-size: var(--font-display);
-    font-weight: var(--weight-display);
-    line-height: var(--leading-tight);
-    letter-spacing: -0.03em;
-    margin-top: 14px;
-    color: var(--text-strong);
-    text-align: center;
-  }
-  .subtitle {
-    font-size: var(--font-label);
-    font-weight: var(--weight-medium);
-    color: var(--text-muted);
-  }
-  .desc {
-    color: var(--text-body);
-    font-size: var(--font-body);
-    line-height: var(--leading-relaxed);
-    margin-top: 20px;
-  }
-  .text-center {
-    text-align: center;
-  }
   a {
     text-decoration: none;
     color: #000;
@@ -121,10 +92,10 @@ export const GlobalStyle = createGlobalStyle`
     &:active {
       transform: scale(0.97);
     }
-    &:focus {
-      --tw--shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-      --tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-      box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    /* 키보드로 이동할 때만 초점 테두리를 보인다(보라 무대 위에서 잘 보이는 노랑) */
+    &:focus-visible {
+      outline: 3px solid var(--highlight);
+      outline-offset: 3px;
     }
   }
   .btn-outline {
@@ -214,11 +185,6 @@ export const GlobalStyle = createGlobalStyle`
       animation: none !important;
       transition: none !important;
     }
-  }
-  .shadow {
-    --tw--shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    --tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
 `;
