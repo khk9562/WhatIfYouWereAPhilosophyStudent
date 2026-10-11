@@ -18,7 +18,7 @@ function Main() {
           margin: "30px 0",
         }}
       />
-      <p className="desc">
+      <p className="desc text-center">
         21세기 자본주의의 나라 대한민국에서 당신은 대학의 철학과에 진학하게
         되었습니다.
         <br />

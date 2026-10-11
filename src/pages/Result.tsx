@@ -19,7 +19,7 @@ function Result() {
 
   return (
     <Container isResult={true}>
-      <h6>결과 확인</h6>
+      <p className="eyebrow">결과 확인</p>
 
       <h1 className="title">{resultList?.title}</h1>
       <img

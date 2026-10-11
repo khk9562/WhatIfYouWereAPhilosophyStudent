@@ -2,7 +2,9 @@
 const WIDTH = 1080;
 const HEIGHT = 1350;
 const POINT = "#6E44FF";
-const FONT = `"Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif`;
+const HEADLINE = "21세기 대한민국 철학과에 진학했다면?!";
+const FOOTER = "나의 철학과 포지션은?";
+const FONT = `"Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif`;
 
 export interface ResultCard {
   title: string;
@@ -10,8 +12,8 @@ export interface ResultCard {
   img: string;
 }
 
-// 글자 단위로 줄을 나눈다. 한글은 띄어쓰기 없이 길게 이어질 수 있어 단어 단위로만 자르면 넘친다.
-// 다만 줄 첫머리에 공백이 오지 않게 한다.
+// 띄어쓰기 단위로 줄을 나눈다(화면의 word-break: keep-all과 같은 방식).
+// 한 단어가 한 줄보다 길 때만 그 단어를 글자 단위로 자른다.
 export function wrapText(
   text: string,
   maxWidth: number,
@@ -19,16 +21,24 @@ export function wrapText(
 ) {
   const lines: string[] = [];
   let line = "";
-  for (const ch of Array.from(text)) {
-    if (line === "" && ch === " ") continue;
-    if (measure(line + ch) > maxWidth && line !== "") {
-      lines.push(line.trimEnd());
-      line = ch === " " ? "" : ch;
-    } else {
-      line += ch;
+  for (const word of text.split(/\s+/).filter(Boolean)) {
+    const candidate = line ? `${line} ${word}` : word;
+    if (measure(candidate) <= maxWidth) {
+      line = candidate;
+      continue;
+    }
+    if (line) lines.push(line);
+    line = "";
+    for (const ch of Array.from(word)) {
+      if (line && measure(line + ch) > maxWidth) {
+        lines.push(line);
+        line = ch;
+      } else {
+        line += ch;
+      }
     }
   }
-  if (line) lines.push(line.trimEnd());
+  if (line) lines.push(line);
   return lines;
 }
 
@@ -59,6 +69,14 @@ function roundRect(
 }
 
 export async function drawResultCard(result: ResultCard) {
+  // 캔버스는 서체가 다 받아지기 전에 그리면 대체 서체로 그려진다. 쓰는 글자가 든 서브셋을 먼저 받아 둔다
+  const texts = [HEADLINE, result.title, result.description, FOOTER].join("");
+  await Promise.all(
+    [800, 600, 500, 400].map((weight) =>
+      document.fonts.load(`${weight} 40px "Pretendard Variable"`, texts).catch(() => [])
+    )
+  );
+
   const canvas = document.createElement("canvas");
   canvas.width = WIDTH;
   canvas.height = HEIGHT;
@@ -75,7 +93,7 @@ export async function drawResultCard(result: ResultCard) {
   ctx.textBaseline = "top";
   ctx.fillStyle = POINT;
   ctx.font = `600 36px ${FONT}`;
-  ctx.fillText("21세기 대한민국 철학과에 진학했다면?!", WIDTH / 2, 130);
+  ctx.fillText(HEADLINE, WIDTH / 2, 130);
 
   ctx.fillStyle = "#171717";
   ctx.font = `800 96px ${FONT}`;
@@ -85,7 +103,7 @@ export async function drawResultCard(result: ResultCard) {
   const size = 380;
   ctx.drawImage(image, (WIDTH - size) / 2, 340, size, size);
 
-  ctx.fillStyle = "#4B5563";
+  ctx.fillStyle = "#374151";
   ctx.font = `400 38px ${FONT}`;
   const lines = wrapText(result.description, WIDTH - 280, (value) => ctx.measureText(value).width);
   lines.slice(0, 8).forEach((line, index) => {
@@ -94,7 +112,7 @@ export async function drawResultCard(result: ResultCard) {
 
   ctx.fillStyle = "#9CA3AF";
   ctx.font = `500 30px ${FONT}`;
-  ctx.fillText("나의 철학과 포지션은?", WIDTH / 2, HEIGHT - 150);
+  ctx.fillText(FOOTER, WIDTH / 2, HEIGHT - 150);
 
   return new Promise<Blob>((resolve, reject) => {
     canvas.toBlob((blob) => (blob ? resolve(blob) : reject(new Error("이미지를 만들지 못했습니다."))), "image/png");
