@@ -1,20 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Container from "../components/Layout/Container";
 import mainImg from "../assets/icons/philosopher.png";
-import KaKaoShareBtn from "../components/KaKaoShareBtn";
+import { ShareButton } from "../components/ShareButtons";
 
 function Main() {
-  useEffect(() => {
-    // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해야 합니다.
-    if (!window.Kakao.isInitialized()) {
-      window.Kakao.init(process.env.REACT_APP_KAKAO_KEY);
-    }
-
-    // SDK 초기화 여부를 판단합니다.
-    console.log(window.Kakao.isInitialized());
-  }, []);
-
   return (
     <Container>
       <h1 className="title">21세기 대한민국 철학과에 진학했다면?!</h1>
@@ -44,7 +34,7 @@ function Main() {
           marginTop: "20px",
         }}
       >
-        <KaKaoShareBtn kind="main" />
+        <ShareButton text="21세기 대한민국 철학과에 진학했다면? 나의 철학과 포지션을 확인해 보세요!" />
         <Link className="btn" to={`/select`}>
           시작하기
         </Link>

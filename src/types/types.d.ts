@@ -1,11 +1,5 @@
 import React, { useState, useEffect, SetStateAction } from "react";
 
-declare global {
-  interface Window {
-    Kakao: any;
-  }
-}
-
 export interface ResultType {
   name: string;
   description: string;
@@ -26,11 +20,4 @@ export interface SelectButtonType {
 export interface HandlePageType {
   pageNum: number;
   setPageNum: React.Dispatch<SetStateAction<number>>;
-}
-
-export interface KaKaoShareBtnType {
-  kind: string;
-  result?: string;
-  desc?: string;
-  imgsrc?: string;
 }

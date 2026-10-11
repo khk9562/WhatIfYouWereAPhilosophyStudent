@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { ResultType } from "../types/types";
 import { RESULT_LIST } from "../constants/SelectList";
 import Container from "../components/Layout/Container";
-import KaKaoShareBtn from "../components/KaKaoShareBtn";
-import mainImg from "../assets/icons/philosopher.png";
+import { SaveImageButton, ShareButton } from "../components/ShareButtons";
 
 function Result() {
   const [resultList, setResultList] = useState<any>();
@@ -38,23 +37,27 @@ function Result() {
       </p>
 
       <div
+        className="btn-row"
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "12px",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "8px",
           marginTop: "30px",
         }}
       >
         <Link to={"/"} className="btn">
           메인으로
         </Link>
-        <KaKaoShareBtn
-          kind="result"
-          result={resultList?.title}
-          desc={resultList?.description}
-          imgsrc={resultList?.img}
-        />
-      </div>
+        <SaveImageButton result={resultList} />
+        <ShareButton
+          text={
+            resultList
+              ? `나의 철학과 포지션은 '${resultList.title}'! 당신도 확인해 보세요.`
+              : "나의 철학과 포지션을 확인해 보세요!"
+          }
+        />      </div>
     </Container>
   );
 }
