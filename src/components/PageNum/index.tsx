@@ -1,8 +1,9 @@
-import React, { useState, useEffect, SetStateAction } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import StyledPageNumBox from "./style";
 import { SELECT_LIST } from "../../constants/SelectList";
 import { HandlePageType } from "../../types/types";
+import { clearProgress } from "../../shared/progress";
 import HomeIcon from "../../assets/icons/home.png";
 import LeftIcon from "../../assets/icons/left.png";
 import RightIcon from "../../assets/icons/right.png";
@@ -19,24 +20,13 @@ function PageNum({ pageNum, setPageNum }: HandlePageType) {
     }
   };
 
-  useEffect(() => {
-    let page = localStorage.getItem("page");
-    setPageNum(Number(page));
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("page", String(pageNum));
-  }, [pageNum]);
-
   return (
     <StyledPageNumBox>
       <Link to={"/"}>
         <button
           type="button"
           style={{ marginTop: "7px", width: "20px", height: "20px" }}
-          onClick={() => {
-            localStorage.clear();
-          }}
+          onClick={clearProgress}
         >
           <img src={HomeIcon} width={35} height={35} alt="homeIcon" />
         </button>

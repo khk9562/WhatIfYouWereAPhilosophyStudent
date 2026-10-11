@@ -19,37 +19,30 @@ function Result() {
 
   return (
     <Container isResult={true}>
-      <p className="eyebrow">결과 확인</p>
+      <p className="eyebrow fade-in">결과 확인</p>
 
-      <h1 className="title">{resultList?.title}</h1>
-      <img
-        src={resultList?.img}
-        alt="main"
-        style={{
-          width: "50%",
-          maxWidth: "180px",
-          objectFit: "contain",
-          margin: "30px 0",
-        }}
-      />
-      <p className="desc" style={{ padding: "0 3vw" }}>
+      <h1 className="title blur-in" style={{ "--delay": "150ms" } as React.CSSProperties}>
+        {resultList?.title}
+      </h1>
+      <div
+        className="wobble-in"
+        style={{ "--delay": "350ms", width: "55%", maxWidth: "200px", margin: "32px 0 8px" } as React.CSSProperties}
+      >
+        <img
+          src={resultList?.img}
+          alt={resultList?.title ?? "result"}
+          className="float"
+          style={{ display: "block", width: "100%", objectFit: "contain" }}
+        />
+      </div>
+      <p className="desc fade-up" style={{ "--delay": "650ms", padding: "0 2vw" } as React.CSSProperties}>
         {resultList?.description}
       </p>
 
       <div
-        className="btn-row"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: "8px",
-          marginTop: "30px",
-        }}
+        className="btn-grid fade-up"
+        style={{ "--delay": "850ms" } as React.CSSProperties}
       >
-        <Link to={"/"} className="btn">
-          메인으로
-        </Link>
         <SaveImageButton result={resultList} />
         <ShareButton
           text={
@@ -57,7 +50,11 @@ function Result() {
               ? `나의 철학과 포지션은 '${resultList.title}'! 당신도 확인해 보세요.`
               : "나의 철학과 포지션을 확인해 보세요!"
           }
-        />      </div>
+        />
+        <Link to={"/"} className="btn btn-wide">
+          메인으로
+        </Link>
+      </div>
     </Container>
   );
 }
