@@ -3,13 +3,12 @@ import { useNavigate } from "react-router-dom";
 import PageNum from "../components/PageNum";
 import SelectButton from "../components/SelectButton";
 import Question from "../components/Question";
+import { Stage, StageBubbles } from "../components/Stage";
 import {
-  Bubble,
   Options,
   QuestionArea,
   QuestionLabel,
   ResultAction,
-  Stage,
 } from "../components/QuestionStage/style";
 import { SELECT_LIST } from "../constants/SelectList";
 import { loadPage, loadSelections, saveProgress, Selection } from "../shared/progress";
@@ -90,10 +89,8 @@ function Select() {
   const isLastPage = pageNum === SELECT_LIST.length;
 
   return (
-    <Stage>
-      <Bubble $size={180} $top="58%" $left="-18%" $delay="0s" />
-      <Bubble $size={110} $top="8%" $left="78%" $delay="-4s" />
-      <Bubble $size={64} $top="40%" $left="86%" $delay="-7s" />
+    <Stage $quote>
+      <StageBubbles />
 
       {/* 문항이 바뀔 때마다 등장 효과가 다시 재생되도록 key를 문항 번호로 둔다 */}
       <QuestionArea key={`question-${pageNum}`}>

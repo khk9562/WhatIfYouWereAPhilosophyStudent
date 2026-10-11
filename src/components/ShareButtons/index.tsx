@@ -4,14 +4,22 @@ import { saveResultImage, ResultCard } from "../../shared/resultImage";
 
 const SHARE_TITLE = "철학과 학생 테스트";
 
-export function ShareButton({ text }: { text: string }) {
+export function ShareButton({
+  text,
+  className = "btn btn-outline",
+  label = "공유하기",
+}: {
+  text: string;
+  className?: string;
+  label?: string;
+}) {
   return (
     <button
       type="button"
-      className="btn btn-outline"
+      className={className}
       onClick={() => shareLink(SHARE_TITLE, text)}
     >
-      공유하기
+      {label}
     </button>
   );
 }

@@ -39,7 +39,8 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   html, body {
-    background-color: #efefef;
+    /* 넓은 화면에서 가운데 무대 양옆에 보이는 바탕 */
+    background-color: #ece6ff;
   }
   html, body, #root {
     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
@@ -150,6 +151,11 @@ export const GlobalStyle = createGlobalStyle`
   }
   .btn-wide {
     grid-column: 1 / -1;
+  }
+  .btn-ghost {
+    background-color: rgb(255 255 255 / 0.12);
+    color: #fff;
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.55);
   }
   .btn-light {
     background-color: #fff;
